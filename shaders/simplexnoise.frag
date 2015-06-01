@@ -115,10 +115,10 @@ varying vec3 v_texCoord3D;
 
 void main( void ){
     vec3 uvr = v_texCoord3D * freqR;
-    float red = snoise(uvr - vec3(shiftR.x * time * speed.r, shiftR.y * time * speed.r, time * speed.r)) * mul.r + add.r;
+    float red = mod(snoise(uvr - vec3(shiftR.x * time * speed.r, shiftR.y * time * speed.r, time * speed.r)) * mul.r + add.r, 2.0);
     vec3 uvg = v_texCoord3D * freqG;
-    float green = snoise(uvg - vec3(shiftG.x * time * speed.g, shiftG.y * time * speed.g, time * speed.g)) * mul.g + add.g;
+    float green = mod(snoise(uvg - vec3(shiftG.x * time * speed.g, shiftG.y * time * speed.g, time * speed.g)) * mul.g + add.g, 2.0);
     vec3 uvb = v_texCoord3D * freqB;
-    float blue = snoise(uvb - vec3(shiftB.x * time * speed.b, shiftB.y * time * speed.b, time * speed.b)) * mul.b + add.b;
+    float blue = mod(snoise(uvb - vec3(shiftB.x * time * speed.b, shiftB.y * time * speed.b, time * speed.b)) * mul.b + add.b, 2.0);
     gl_FragColor = vec4(vec3(red, green, blue), 1.0);
 }
