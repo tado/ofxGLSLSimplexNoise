@@ -1,7 +1,7 @@
 #include "ofxGLSLSimplexNoise.h"
 
 ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){   
-    shader.load("../../../shaders/simplexnoise.vert", "../../../shaders/simplexnoise.frag");
+    shader.load("../../../../../addons/ofxGLSLSimplexNoise/shaders/simplexnoise.vert", "../../../../../addons/ofxGLSLSimplexNoise/shaders/simplexnoise.frag");
     freqR.set(1.0, 1.0);
     freqG.set(1.0, 1.0);
     freqB.set(1.0, 1.0);
