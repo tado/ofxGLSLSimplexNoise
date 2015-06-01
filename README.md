@@ -4,6 +4,6 @@ Generate simplex noise using GLSL(shader). The GLSL code based on ashima's impri
 
 ![](noiseimage.jpg)
 
-## Livense
+## License
 
 ofxGLSLSimplexNoise is distributed under the MIT License.
