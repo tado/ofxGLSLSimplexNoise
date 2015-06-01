@@ -1,10 +1,15 @@
 #pragma once
+
+#define STRINGIFY(A) #A
 #include "ofMain.h"
 
 class ofxGLSLSimplexNoise {
 public:
     ofxGLSLSimplexNoise();
     void draw();
+    
+    string frag;
+    string vert;
     
     ofShader shader;
     ofVec2f freqR, freqG, freqB;
