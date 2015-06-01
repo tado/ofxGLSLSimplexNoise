@@ -101,14 +101,24 @@ float snoise(vec3 v){
 
 
 uniform float time;
-uniform vec3 freq;
-uniform float mul;
-uniform float add;
-uniform vec2 shift;
+uniform vec3 freqR;
+uniform vec3 freqG;
+uniform vec3 freqB;
+uniform vec2 shiftR;
+uniform vec2 shiftG;
+uniform vec2 shiftB;
+uniform vec3 speed;
+uniform vec3 mul;
+uniform vec3 add;
+
 varying vec3 v_texCoord3D;
 
 void main( void ){
-    vec3 uv = v_texCoord3D * freq;
-    float gray = snoise(uv - vec3(shift.x * time, shift.y * time, time)) * mul + add;
-    gl_FragColor = vec4(vec3(gray, gray, gray), 1.0);
+    vec3 uvr = v_texCoord3D * freqR;
+    float red = snoise(uvr - vec3(shiftR.x * time * speed.r, shiftR.y * time * speed.r, time * speed.r)) * mul.r + add.r;
+    vec3 uvg = v_texCoord3D * freqG;
+    float green = snoise(uvg - vec3(shiftG.x * time * speed.g, shiftG.y * time * speed.g, time * speed.g)) * mul.g + add.g;
+    vec3 uvb = v_texCoord3D * freqB;
+    float blue = snoise(uvb - vec3(shiftB.x * time * speed.b, shiftB.y * time * speed.b, time * speed.b)) * mul.b + add.b;
+    gl_FragColor = vec4(vec3(red, green, blue), 1.0);
 }

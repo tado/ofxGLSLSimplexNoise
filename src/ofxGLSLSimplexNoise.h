@@ -7,8 +7,9 @@ public:
     void draw();
     
     ofShader shader;
-    ofVec2f freq;
-    float mul;
-    float add;
-    ofVec2f shift;
+    ofVec2f freqR, freqG, freqB;
+    ofVec2f shiftR, shiftG, shiftB;
+    ofVec3f mul;
+    ofVec3f add;
+    ofVec3f speed;
 };
