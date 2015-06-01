@@ -5,10 +5,10 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
     
-    noise.freq = 5.0;
-    noise.mul = 0.6;
+    noise.freq.set(10.0, 3.0);
+    noise.mul = 0.75;
     noise.add = 0.5;
-    noise.shift.set(1.0, 0.3);
+    noise.shift.set(0.0, 2.0);
 }
 
 //--------------------------------------------------------------

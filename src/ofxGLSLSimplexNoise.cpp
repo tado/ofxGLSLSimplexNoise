@@ -2,7 +2,7 @@
 
 ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){   
     shader.load("../../../shaders/simplexnoise.vert", "../../../shaders/simplexnoise.frag");
-    freq = 1.0;
+    freq.set(1.0, 1.0);
     mul = 1.0;
     add = 0.0;
     shift.set(0.0, 0.0);
@@ -11,7 +11,7 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
 void ofxGLSLSimplexNoise::draw(){
     shader.begin();
     shader.setUniform1f("time", ofGetElapsedTimef());
-    shader.setUniform1f("freq", freq);
+    shader.setUniform3f("freq", freq.x, freq.y, 1.0);
     shader.setUniform1f("mul", mul);
     shader.setUniform1f("add", add);
     shader.setUniform2f("shift", shift.x, shift.y);

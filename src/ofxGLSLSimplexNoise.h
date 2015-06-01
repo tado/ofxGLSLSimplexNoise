@@ -7,7 +7,7 @@ public:
     void draw();
     
     ofShader shader;
-    float freq;
+    ofVec2f freq;
     float mul;
     float add;
     ofVec2f shift;

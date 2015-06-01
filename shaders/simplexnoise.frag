@@ -101,7 +101,7 @@ float snoise(vec3 v){
 
 
 uniform float time;
-uniform float freq;
+uniform vec3 freq;
 uniform float mul;
 uniform float add;
 uniform vec2 shift;
