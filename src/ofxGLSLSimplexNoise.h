@@ -12,4 +12,5 @@ public:
     ofVec3f mul;
     ofVec3f add;
     ofVec3f speed;
+    ofFbo fbo;
 };

@@ -11,9 +11,12 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
     mul.set(1.0, 1.0, 1.0);
     add.set(0.0, 0.0, 0.0);
     speed.set(1.0, 1.0, 1.0);
+    
+    fbo.allocate(ofGetWidth(), ofGetHeight());
 }
 
 void ofxGLSLSimplexNoise::draw(){
+    fbo.begin();
     shader.begin();
     shader.setUniform1f("time", ofGetElapsedTimef());
     shader.setUniform3f("freqR", freqR.x, freqR.y, 1.0);
@@ -29,4 +32,7 @@ void ofxGLSLSimplexNoise::draw(){
     ofScale(ofGetWidth(), ofGetWidth());
     ofRect(0, 0, 1.0, 1.0);
     shader.end();
+    fbo.end();
+    
+    fbo.draw(0, 0, ofGetWidth(), ofGetHeight());
 }
