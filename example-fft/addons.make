@@ -1,3 +1,0 @@
-ofxGui
-ofxFft
-ofxGLSLSimplexNoise
