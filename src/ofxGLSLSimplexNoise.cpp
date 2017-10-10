@@ -108,12 +108,12 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
 		 float w = 1.0;
 		 float h = 1.0;
 
-		 float r = 1.0 * zero_one(snoise(vec3(uv.x * w * freqR.x, uv.y * h * freqR.y, speed.r * time)));
-		 float g = 1.0 * zero_one(snoise(vec3(uv.x * w * freqG.x, uv.y * h * freqG.y, speed.g * time)));
-		 float b = 1.0 * zero_one(snoise(vec3(uv.x * w * freqB.x, uv.y * h * freqB.y, speed.b * time)));
+		 float r = mul.r * zero_one(snoise(vec3(uv.x * w * freqR.x, uv.y * h * freqR.y, speed.r * time)) + add.r);
+		 float g = mul.g * zero_one(snoise(vec3(uv.x * w * freqG.x, uv.y * h * freqG.y, speed.g * time)) + add.g);
+		 float b = mul.b * zero_one(snoise(vec3(uv.x * w * freqB.x, uv.y * h * freqB.y, speed.b * time)) + add.b);
 
 		 vec3 rgb = vec3(r, g, b);
-		 gl_FragColor = vec4(1.0 * (matColor * rgb), 1.0);
+		 gl_FragColor = vec4((matColor * rgb), 1.0);
 	 }
     );
     
@@ -139,20 +139,19 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
     
 	freqR.set(0.5, 0.5);
 	freqG.set(0.4, 0.4);
-	freqB.set(0.2, 0.9);
+	freqB.set(0.2, 1.0);
 
 	colorR.set(0.8, 0.4, 0.2);
 	colorG.set(0.2, 0.8, 0.4);
 	colorB.set(0.4, 0.2, 0.8);
-
-
+	
     shiftR.set(0.1, 0.2);
     shiftG.set(0.9, 0.3);    
 	shiftB.set(0.0, 0.2);
     
-	mul.set(12.0, 12.0, 20.0);
+	mul.set(0.2, 1.0, 1.0);
     add.set(0.0, 0.0, 0.0);
-    speed.set(0.5, 0.6, 0.8);
+    speed.set(0.2, 0.3, 0.4);
     
     fbo.allocate(ofGetWidth(), ofGetHeight());
 }
