@@ -1,0 +1,15 @@
+<group>
+	<Freq_R_X>0.165</Freq_R_X>
+	<Freq_R_Y>0.175</Freq_R_Y>
+	<Freq_G_X>0.125</Freq_G_X>
+	<Freq_G_Y>0.145</Freq_G_Y>
+	<Freq_B_X>0.055</Freq_B_X>
+	<Freq_B_Y>0.115</Freq_B_Y>
+	<speed_R>0.37</speed_R>
+	<speed_G>0.47</speed_G>
+	<speed_B>0.56</speed_B>
+	<multiple_R>0.26</multiple_R>
+	<multiple_G>0.91</multiple_G>
+	<multiple_B>1.3</multiple_B>
+<group/>
+</group>

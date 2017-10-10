@@ -13,10 +13,11 @@ public:
     
     ofShader shader;
 	ofVec2f freqR, freqG, freqB;
+	ofVec3f speed;
+	ofVec3f mul;
+	ofVec3f add;
 	ofVec3f colorR, colorG, colorB;
-    ofVec2f shiftR, shiftG, shiftB;
-    ofVec3f mul;
-    ofVec3f add;
-    ofVec3f speed;
     ofFbo fbo;
+
+	//ofVec2f shiftR, shiftG, shiftB;
 };

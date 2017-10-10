@@ -104,7 +104,7 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
 	 void main(void) {
 		 mat3 matColor = mat3(colorR, colorG, colorB);
 
-		 vec3 uv = v_texCoord3D * 10.0;
+		 vec3 uv = v_texCoord3D * 50.0;
 		 float w = 1.0;
 		 float h = 1.0;
 
@@ -145,9 +145,9 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
 	colorG.set(0.2, 0.8, 0.4);
 	colorB.set(0.4, 0.2, 0.8);
 	
-    shiftR.set(0.1, 0.2);
-    shiftG.set(0.9, 0.3);    
-	shiftB.set(0.0, 0.2);
+    //shiftR.set(0.1, 0.2);
+    //shiftG.set(0.9, 0.3);    
+	//shiftB.set(0.0, 0.2);
     
 	mul.set(0.2, 1.0, 1.0);
     add.set(0.0, 0.0, 0.0);
@@ -169,9 +169,9 @@ void ofxGLSLSimplexNoise::draw(){
 	shader.setUniform3f("colorG", colorG.x, colorG.y, colorG.z);
 	shader.setUniform3f("colorB", colorB.x, colorB.y, colorB.z);
 
-    shader.setUniform2f("shiftR", shiftR.x, shiftR.y);
-    shader.setUniform2f("shiftG", shiftG.x, shiftR.y);
-    shader.setUniform2f("shiftB", shiftB.x, shiftR.y);
+    //shader.setUniform2f("shiftR", shiftR.x, shiftR.y);
+    //shader.setUniform2f("shiftG", shiftG.x, shiftR.y);
+    //shader.setUniform2f("shiftB", shiftB.x, shiftR.y);
     shader.setUniform3f("mul", mul.x, mul.y, mul.z);
     shader.setUniform3f("add", add.x, add.y, add.z);
     shader.setUniform3f("speed", speed.x, speed.y, speed.z);

@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGLSLSimplexNoise.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
     
@@ -21,4 +22,17 @@ public:
     void gotMessage(ofMessage msg);
     
     ofxGLSLSimplexNoise noise;    
+	ofxPanel gui;
+	ofxFloatSlider freqRX;
+	ofxFloatSlider freqRY;
+	ofxFloatSlider freqGX;
+	ofxFloatSlider freqGY;
+	ofxFloatSlider freqBX;
+	ofxFloatSlider freqBY;
+	ofxFloatSlider speedR;
+	ofxFloatSlider speedG;
+	ofxFloatSlider speedB;
+	ofxFloatSlider mulR;
+	ofxFloatSlider mulG;
+	ofxFloatSlider mulB;
 };
