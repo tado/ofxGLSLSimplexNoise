@@ -35,4 +35,18 @@ public:
 	ofxFloatSlider mulR;
 	ofxFloatSlider mulG;
 	ofxFloatSlider mulB;
+	ofxFloatSlider addR;
+	ofxFloatSlider addG;
+	ofxFloatSlider addB;
+	ofxFloatSlider colorRR;
+	ofxFloatSlider colorRG;
+	ofxFloatSlider colorRB;
+	ofxFloatSlider colorGR;
+	ofxFloatSlider colorGG;
+	ofxFloatSlider colorGB;
+	ofxFloatSlider colorBR;
+	ofxFloatSlider colorBG;
+	ofxFloatSlider colorBB;
+
+	bool showGui;
 };
