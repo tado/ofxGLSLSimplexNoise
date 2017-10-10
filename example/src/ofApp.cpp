@@ -4,15 +4,6 @@
 void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
-    float freq;
-    freq = ofRandom(2.0);
-    noise.freqR.set(freq, freq);
-    freq = ofRandom(2.0);
-    noise.freqG.set(freq, freq);
-    freq = ofRandom(2.0);
-    noise.freqB.set(freq, freq);
-    noise.mul.set(3.0, 3.0, 3.0);
-    noise.speed.set(ofRandom(2.0), ofRandom(2.0), ofRandom(2.0));
 }
 
 //--------------------------------------------------------------

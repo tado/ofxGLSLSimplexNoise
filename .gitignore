@@ -104,3 +104,14 @@ Desktop.ini
 #########################
 
 .mailmap
+*.dll
+*.exe
+*.exp
+*.lib
+*.rc
+*.sln
+*.db
+*.opendb
+*.vcxproj
+*.filters
+*.user

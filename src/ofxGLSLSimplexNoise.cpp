@@ -3,6 +3,14 @@
 ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
     frag = STRINGIFY
     (
+
+	float zero_one(float n) {
+		return (n + 1.0) / 2.0;
+	}
+	
+	float minus_plus_one(float n) {
+		return (n - 0.5) * 2.0;
+	}
      vec3 mod289(vec3 x) {
          return x - floor(x * (1.0 / 289.0)) * 289.0;
      }
@@ -78,26 +86,35 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
      }
      
      uniform float time;
-     uniform vec3 freqR;
-     uniform vec3 freqG;
-     uniform vec3 freqB;
-     uniform vec2 shiftR;
-     uniform vec2 shiftG;
-     uniform vec2 shiftB;
+	 uniform vec2 resolution;
+     uniform vec2 freqR;
+     uniform vec2 freqG;
+     uniform vec2 freqB;
+	 uniform vec2 shiftR;
+	 uniform vec2 shiftG;
+	 uniform vec2 shiftB;
+	 uniform vec3 colorR;
+	 uniform vec3 colorG;
+	 uniform vec3 colorB;
      uniform vec3 speed;
      uniform vec3 mul;
      uniform vec3 add;
      varying vec3 v_texCoord3D;
-     
-     void main( void ){
-         vec3 uvr = v_texCoord3D * freqR;
-         float red = mod(snoise(uvr - vec3(shiftR.x * time * speed.r, shiftR.y * time * speed.r, time * speed.r)) * mul.r + add.r, 2.0);
-         vec3 uvg = v_texCoord3D * freqG;
-         float green = mod(snoise(uvg - vec3(shiftG.x * time * speed.g, shiftG.y * time * speed.g, time * speed.g)) * mul.g + add.g, 2.0);
-         vec3 uvb = v_texCoord3D * freqB;
-         float blue = mod(snoise(uvb - vec3(shiftB.x * time * speed.b, shiftB.y * time * speed.b, time * speed.b)) * mul.b + add.b, 2.0);
-         gl_FragColor = vec4(vec3(red, green, blue), 1.0);
-     }
+
+	 void main(void) {
+		 mat3 matColor = mat3(colorR, colorG, colorB);
+
+		 vec3 uv = v_texCoord3D * 10.0;
+		 float w = 1.0;
+		 float h = 1.0;
+
+		 float r = 1.0 * zero_one(snoise(vec3(uv.x * w * freqR.x, uv.y * h * freqR.y, speed.r * time)));
+		 float g = 1.0 * zero_one(snoise(vec3(uv.x * w * freqG.x, uv.y * h * freqG.y, speed.g * time)));
+		 float b = 1.0 * zero_one(snoise(vec3(uv.x * w * freqB.x, uv.y * h * freqB.y, speed.b * time)));
+
+		 vec3 rgb = vec3(r, g, b);
+		 gl_FragColor = vec4(1.0 * (matColor * rgb), 1.0);
+	 }
     );
     
     vert = STRINGIFY
@@ -117,17 +134,25 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
     if (vert.empty() == false) {
         shader.setupShaderFromSource(GL_VERTEX_SHADER, vert);
     }
+
     shader.linkProgram();
     
-    freqR.set(1.0, 1.0);
-    freqG.set(1.0, 1.0);
-    freqB.set(1.0, 1.0);
-    shiftR.set(0.0, 0.0);
-    shiftG.set(0.0, 0.0);
-    shiftB.set(0.0, 0.0);
-    mul.set(1.0, 1.0, 1.0);
+	freqR.set(0.5, 0.5);
+	freqG.set(0.4, 0.4);
+	freqB.set(0.2, 0.9);
+
+	colorR.set(0.8, 0.4, 0.2);
+	colorG.set(0.2, 0.8, 0.4);
+	colorB.set(0.4, 0.2, 0.8);
+
+
+    shiftR.set(0.1, 0.2);
+    shiftG.set(0.9, 0.3);    
+	shiftB.set(0.0, 0.2);
+    
+	mul.set(12.0, 12.0, 20.0);
     add.set(0.0, 0.0, 0.0);
-    speed.set(1.0, 1.0, 1.0);
+    speed.set(0.5, 0.6, 0.8);
     
     fbo.allocate(ofGetWidth(), ofGetHeight());
 }
@@ -135,10 +160,16 @@ ofxGLSLSimplexNoise::ofxGLSLSimplexNoise(){
 void ofxGLSLSimplexNoise::draw(){
     fbo.begin();
     shader.begin();
-    shader.setUniform1f("time", ofGetElapsedTimef());
-    shader.setUniform3f("freqR", freqR.x, freqR.y, 1.0);
-    shader.setUniform3f("freqG", freqG.x, freqG.y, 1.0);
-    shader.setUniform3f("freqB", freqB.x, freqB.y, 1.0);
+	shader.setUniform1f("time", ofGetElapsedTimef());
+	shader.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
+	shader.setUniform2f("freqR", freqR.x, freqR.y);
+	shader.setUniform2f("freqG", freqG.x, freqG.y);
+	shader.setUniform2f("freqB", freqB.x, freqB.y);
+
+	shader.setUniform3f("colorR", colorR.x, colorR.y, colorR.z);
+	shader.setUniform3f("colorG", colorG.x, colorG.y, colorG.z);
+	shader.setUniform3f("colorB", colorB.x, colorB.y, colorB.z);
+
     shader.setUniform2f("shiftR", shiftR.x, shiftR.y);
     shader.setUniform2f("shiftG", shiftG.x, shiftR.y);
     shader.setUniform2f("shiftB", shiftB.x, shiftR.y);
