@@ -1,27 +1,27 @@
 <group>
-	<Freq_R_X>0.49</Freq_R_X>
-	<Freq_R_Y>2</Freq_R_Y>
-	<Freq_G_X>0.08</Freq_G_X>
-	<Freq_G_Y>0.2</Freq_G_Y>
-	<Freq_B_X>0.04</Freq_B_X>
-	<Freq_B_Y>0.08</Freq_B_Y>
-	<speed_R>1</speed_R>
-	<speed_G>0.475</speed_G>
-	<speed_B>0.08</speed_B>
-	<multiple_R>0.12</multiple_R>
-	<multiple_G>0.2</multiple_G>
-	<multiple_B>1.08</multiple_B>
-<group/>
-<add_R>1.23</add_R>
+	<Freq_R_X>1.48</Freq_R_X>
+	<Freq_R_Y>0.05</Freq_R_Y>
+	<Freq_G_X>0.11</Freq_G_X>
+	<Freq_G_Y>0.23</Freq_G_Y>
+	<Freq_B_X>0.21</Freq_B_X>
+	<Freq_B_Y>0.04</Freq_B_Y>
+	<speed_R>0.39</speed_R>
+	<speed_G>0.48</speed_G>
+	<speed_B>0.335</speed_B>
+	<multiple_R>1.09</multiple_R>
+	<multiple_G>1.12</multiple_G>
+	<multiple_B>0.66</multiple_B>
+	<add_R>0</add_R>
 	<add_G>0</add_G>
-	<add_B>0.77</add_B>
-<color_RR>0.725</color_RR>
-	<color_RG>0.735</color_RG>
-	<color_RB>0.465</color_RB>
-	<color_GR>0.685</color_GR>
-	<color_GG>0.545</color_GG>
-	<color_GB>0.655</color_GB>
-	<color_BR>0.305</color_BR>
-	<color_BG>0.655</color_BG>
-	<color_BB>0.815</color_BB>
+	<add_B>0</add_B>
+	<color_RR>0.005</color_RR>
+	<color_RG>0.485</color_RG>
+	<color_RB>0.2</color_RB>
+	<color_GR>0.06</color_GR>
+	<color_GG>0.465</color_GG>
+	<color_GB>0.46</color_GB>
+	<color_BR>0.39</color_BR>
+	<color_BG>0.595</color_BG>
+	<color_BB>0.755</color_BB>
+<group/>
 </group>
