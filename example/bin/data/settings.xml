@@ -1,12 +1,12 @@
 <group>
 	<Freq_R_X>1.48</Freq_R_X>
 	<Freq_R_Y>0.05</Freq_R_Y>
-	<Freq_G_X>0.11</Freq_G_X>
-	<Freq_G_Y>0.23</Freq_G_Y>
-	<Freq_B_X>0.21</Freq_B_X>
+	<Freq_G_X>1.21</Freq_G_X>
+	<Freq_G_Y>0.05</Freq_G_Y>
+	<Freq_B_X>0.9</Freq_B_X>
 	<Freq_B_Y>0.04</Freq_B_Y>
 	<speed_R>0.39</speed_R>
-	<speed_G>0.48</speed_G>
+	<speed_G>0.465</speed_G>
 	<speed_B>0.335</speed_B>
 	<multiple_R>1.09</multiple_R>
 	<multiple_G>1.12</multiple_G>
@@ -24,4 +24,5 @@
 	<color_BG>0.595</color_BG>
 	<color_BB>0.755</color_BB>
 <group/>
+<alpha>1</alpha>
 </group>

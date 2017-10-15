@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
 	ofSetFrameRate(60);
-	ofBackground(0);
+    ofBackground(0);
 	showGui = true;
 
 	//gui
@@ -31,7 +31,8 @@ void ofApp::setup() {
 	gui.add(colorGB.setup("color GB", 0.5, 0.0, 1.0));
 	gui.add(colorBR.setup("color BR", 0.5, 0.0, 1.0));
 	gui.add(colorBG.setup("color BG", 0.5, 0.0, 1.0));
-	gui.add(colorBB.setup("color BB", 0.5, 0.0, 1.0));
+    gui.add(colorBB.setup("color BB", 0.5, 0.0, 1.0));
+    gui.add(alpha.setup("alpha", 1.0, 0.0, 1.0));
 
 	gui.loadFromFile("settings.xml");
 }
@@ -47,6 +48,7 @@ void ofApp::update() {
 	noise.colorR.set(colorRR, colorRG, colorRB);
 	noise.colorG.set(colorGR, colorGG, colorGB);
 	noise.colorB.set(colorBR, colorBG, colorBB);
+    noise.alpha = alpha;
 }
 
 //--------------------------------------------------------------

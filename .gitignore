@@ -115,3 +115,9 @@ Desktop.ini
 *.vcxproj
 *.filters
 *.user
+*.make
+*.pbxproj
+*.xcscheme
+*.plist
+*.xcconfig
+example/Makefile

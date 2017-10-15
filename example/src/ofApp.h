@@ -47,6 +47,7 @@ public:
 	ofxFloatSlider colorBR;
 	ofxFloatSlider colorBG;
 	ofxFloatSlider colorBB;
+    ofxFloatSlider alpha;
 
 	bool showGui;
 };

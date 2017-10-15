@@ -17,7 +17,7 @@ public:
 	ofVec3f mul;
 	ofVec3f add;
 	ofVec3f colorR, colorG, colorB;
+    float alpha;
+    
 	ofFbo fbo;
-
-	//ofVec2f shiftR, shiftG, shiftB;
 };
